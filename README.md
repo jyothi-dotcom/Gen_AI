@@ -10,6 +10,11 @@ This project is a Streamlit-based chatbot that uses Retrieval-Augmented Generati
 - **FAISS Vector Store:** Stores and retrieves document chunks using FAISS for fast similarity search.
 - **RAG QA Chain:** Combines document retrieval with LLaMA-based question answering.
 - **Interactive UI:** Ask questions about your PDF and get context-aware answers.
+
+
+## Architecture 
+
+
  
 ## Project Structure
  
