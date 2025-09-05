@@ -1,22 +1,24 @@
-version: '3.8'
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  ollama:
+    image: ollama/ollama:latest
+    restart: always
+    ports:
+      - "11434:11434"
     volumes:
-      - ./src:/app/src
+      - ollama_data:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/entrypoint.sh"]
+ 
+  app:
+    build: .
     depends_on:
-      - llama
-    networks:
-      - app-network
- 
-  llama:
-    image: llama3.2:latest
-    networks:
-      - app-network
- 
-networks:
-  app-network:
-    driver: bridge
+      - ollama
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./uploaded:/app/uploaded
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+volumes:
+  ollama_data:
  

@@ -1,7 +1,6 @@
 streamlit
-PyPDF2 
-langchain 
-sentence-transformers
-faiss-cpu 
-ollama
+PyPDF2
+langchain
 langchain-community
+sentence-transformers
+faiss-cpu
